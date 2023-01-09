@@ -1,0 +1,16 @@
+.button {
+    background: #4A026B;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    padding: 16px 18px;
+    border-radius: 10px;
+}
+
+.button:hover {
+    background: #600A87;
+}
+
+.button:active {
+    background: #520B73;
+}

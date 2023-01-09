@@ -1,0 +1,10 @@
+
+.list-expenses {
+    background: #1F1F1F;
+    border-radius: 12px;
+    padding: 28px 16px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
