@@ -5,20 +5,7 @@ import { NewExpense } from './components/new-expense/NewExpense';
 
 
 function App() {
-  const [expenses, setExpenses] = useState(
-    [
-      // {
-      //   title: "Туалетная бумага",
-      //   price: 300,
-      //   date: new Date(),
-      // },
-      // {
-      //   title: "Зарядник",
-      //   price: 400,
-      //   date: new Date(),
-      // },
-    ]
-  );
+  const [expenses, setExpenses] = useState([]);
 
   const addNewExpenseHandler = (data) => {
     const updatedExpenses = [...expenses];
@@ -35,5 +22,3 @@ function App() {
 }
 
 export default App;
-
-

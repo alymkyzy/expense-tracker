@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ExpenseForm } from "../expense-form/ExpenseForm";
-import Button from "../UI/Button/Button";
+import Button from "../UI/button/Button";
 import "./NewExpense.css";
 
 

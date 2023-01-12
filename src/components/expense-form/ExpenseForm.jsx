@@ -1,12 +1,12 @@
 import FormInput from "../UI/form-input/FormInput";
-import Button from "../UI/Button/Button";
+import Button from "../UI/button/Button";
 import "./ExpenseForm.css";
 import { useState } from "react";
 
 export const ExpenseForm = (props) => {
     const [title, setTitle] = useState("");
-    const [price, setPrice] = useState();
-    const [date, setDate] = useState(null);
+    const [price, setPrice] = useState("");
+    const [date, setDate] = useState("");
 
     const cancelHandler = (event) => {
         event.preventDefault();
@@ -38,9 +38,15 @@ export const ExpenseForm = (props) => {
         }
 
         props.onNewExpenseAdd(expenseData);
-        // console.log(expenseData)
+
+        setTitle("");
+        setPrice("");
+        setDate("");
     }
 
+    let disabled = title.length > 0 &&
+    price.length > 0 &&
+    date.length > 0;
 
 
     return (
@@ -67,11 +73,12 @@ export const ExpenseForm = (props) => {
                 labelName="Дата"
                 inputType="date"
                 onChange={dateInputChangeHandler}
+                value={date}
                 />
             </form>
             <div className="form-buttons">
                 <Button title="Отмена" onClick={cancelHandler}/>
-                <Button title="Добавить расходы" onClick={saveHandler} />
+                <Button title="Добавить расходы" onClick={saveHandler} disabled={!disabled}/>
             </div>
         </div>
 
