@@ -1,5 +1,5 @@
-import "./Chart.css";
 import { ChartBar } from "../chart-bar/ChartBar";
+import styled from "styled-components";
 
 export const Chart = ({ items }) => {
     const maxPrice = 2000;
@@ -60,7 +60,7 @@ export const Chart = ({ items }) => {
     });
 
     return (
-        <div className="chart">
+        <StyledChar>
             {months.map((item) => {
                 return (
                     <ChartBar
@@ -71,6 +71,19 @@ export const Chart = ({ items }) => {
                     />
                 );
             })}
-        </div>
+        </StyledChar>
     );
 }
+
+const StyledChar = styled.div`
+    padding: 14px 28px;
+    border-radius: 12px;
+    height: 151px;
+
+    background: #f8dFFF;
+
+    display: flex;
+    justify-content: space-between;
+    column-gap: 36px;
+
+`;

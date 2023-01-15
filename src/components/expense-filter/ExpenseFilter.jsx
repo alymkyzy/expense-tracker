@@ -1,18 +1,39 @@
-import "./ExpenseFilter.css";
+import styled from "styled-components";
 
 export const ExpenseFilter = ({ value, onChange }) => {
     return (
-        <div className="expense-filter">
-            <div className="expense-filter__control">
+        <StyledExpenseFilter>
+            <StyledExpenseFilterControl>
                 <label htmlFor="years">Фильтровать список</label>
-                <select name="years" value={value} onChange={onChange}>
+                <StyledExpenseFilterSelect name="years" value={value} onChange={onChange}>
                     <option value="2023">2023</option>
                     <option value="2022">2022</option>
                     <option value="2021">2021</option>
                     <option value="2020">2020</option>
                     <option value="2019">2019</option>
-                </select>
-            </div>
-        </div>
+                </StyledExpenseFilterSelect>
+            </StyledExpenseFilterControl>
+        </StyledExpenseFilter>
     )
 }
+
+const StyledExpenseFilter = styled.div`
+    margin-bottom: 18px;
+`;
+
+const StyledExpenseFilterControl = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 16px;
+    font-weight: 600;
+`;
+
+const StyledExpenseFilterSelect = styled.select`
+    padding: 12px 20px;
+    font-weight: 600;
+    color: #222222;
+    font-size: 16px;
+    border-radius: 6px;
+`;

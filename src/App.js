@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css';
+import styled from 'styled-components';
 import { Expenses } from './components/expenses/Expenses';
 import { NewExpense } from './components/new-expense/NewExpense';
 
@@ -14,11 +14,16 @@ function App() {
   }
 
   return (
-    <div className='container'>
+    <StyledContainer>
       <NewExpense onNewExpenseAdd={addNewExpenseHandler}/>
       <Expenses expenses={expenses}/>
-    </div>
+    </StyledContainer>
   );
 }
 
 export default App;
+
+const StyledContainer = styled.div`
+  max-width: 780px;
+  margin: 0 auto;
+`;

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ExpenseItem } from "../expense-item/ExpenseItem";
 import { ExpenseFilter } from "../expense-filter/ExpenseFilter";
 import { Chart } from "../chart/Chart";
-import "./Expenses.css"
+import styled from "styled-components";
 
 export const Expenses = ({ expenses }) => {
     const [selectedYear, setSelectedYear] = useState('2023');
@@ -17,7 +17,7 @@ export const Expenses = ({ expenses }) => {
     });
 
     return (
-        <ul className="list-expenses">
+        <StyledExpenseList>
             <ExpenseFilter value={selectedYear} onChange={yearChangeHandler}/>
             <Chart items={filteredItems}/>
             {filteredItems.map((el) => {
@@ -28,8 +28,18 @@ export const Expenses = ({ expenses }) => {
                     price = {el.price}
                     date = {el.date}
                 />
-                )
+                );
             })}
-        </ul>
+        </StyledExpenseList>
     );
 }
+
+const StyledExpenseList = styled.div`
+    background: #1F1F1F;
+    border-radius: 12px;
+    padding: 28px 16px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+`;

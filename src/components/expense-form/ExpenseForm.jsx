@@ -1,7 +1,7 @@
 import FormInput from "../UI/form-input/FormInput";
 import Button from "../UI/button/Button";
-import "./ExpenseForm.css";
 import { useState } from "react";
+import styled from "styled-components";
 
 export const ExpenseForm = (props) => {
     const [title, setTitle] = useState("");
@@ -50,8 +50,8 @@ export const ExpenseForm = (props) => {
 
 
     return (
-        <div className="form-container">
-            <form className="form-inputs">
+        <StyledFormContainer>
+            <StyledForm>
                 <FormInput
                 id="name"
                 labelName="Название"
@@ -75,13 +75,31 @@ export const ExpenseForm = (props) => {
                 onChange={dateInputChangeHandler}
                 value={date}
                 />
-            </form>
-            <div className="form-buttons">
+            </StyledForm>
+            <StyledFormButton>
                 <Button title="Отмена" onClick={cancelHandler}/>
                 <Button title="Добавить расходы" onClick={saveHandler} disabled={!disabled}/>
-            </div>
-        </div>
+            </StyledFormButton>
+        </StyledFormContainer>
 
-    )
+    );
 }
 
+const StyledFormContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+const StyledForm = styled.form`
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 20px;
+    margin-bottom: 28px;
+`;
+
+const StyledFormButton = styled.div`
+    display: flex;
+    column-gap: 14px;
+    justify-content: flex-end;
+`;
